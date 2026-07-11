@@ -1,0 +1,28 @@
+# requirements-ml.txt — ambiente ML principale (.venv-ml), Python 3.12
+#
+# ATTENZIONE ORDINE (lezione appresa): installa PRIMA questi pacchetti, POI torch
+# dalla index CUDA (vedi README-ML.md). Alcuni pacchetti (es. monai) altrimenti
+# tirano dentro una build CPU di torch e rompono la GPU.
+#
+# torch/torchvision NON sono qui: si installano a parte con:
+#   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+#
+numpy==2.4.4
+pandas==3.0.3
+scipy==1.18.0
+scikit-learn==1.9.0
+statsmodels==0.14.6
+scikit-image==0.26.0
+SimpleITK==2.5.5
+nibabel==5.4.2
+monai==1.6.0
+huggingface-hub
+pyarrow==25.0.0
+matplotlib==3.11.0
+openpyxl
+# notebook
+ipykernel==7.3.0
+nbformat==5.10.4
+nbconvert==7.17.1
+jupyterlab==4.6.1
+ipywidgets==8.1.8

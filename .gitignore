@@ -1,0 +1,15 @@
+# Ambienti virtuali
+.venv*/
+# Dati PANORAMA (licenza CC BY-NC 4.0 — NON ridistribuibili; scaricati con panorama_download.ipynb)
+imagesTr/
+labelsTr/
+cache/
+*.xlsx
+# Feature estratte e pesi dei modelli (rigenerabili)
+ml_study/cache_features/
+ml_study/model_weights/
+# Vari
+__pycache__/
+*.pyc
+*.log
+.ipynb_checkpoints/

@@ -1,0 +1,14 @@
+# requirements-radiomics.txt — venv DEDICATO alla radiomica (.venv-radiomics), Python 3.7
+#
+# pyradiomics ha wheel SOLO per Python 3.5/3.6/3.7 (doc ufficiale). Perciò vive in un
+# venv Python 3.7 separato che estrae le feature e scrive la cache parquet; i notebook
+# (Python 3.12) leggono solo il parquet. Le versioni sotto hanno wheel precompilate per
+# cp37 (nessuna compilazione richiesta).
+#
+numpy==1.21.6
+SimpleITK==2.0.2
+PyWavelets==1.1.1
+pyradiomics==3.0.1
+pandas==1.3.5
+pyarrow==8.0.0
+openpyxl==3.1.3

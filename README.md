@@ -119,6 +119,27 @@ Le feature sono in cache. → **A parità di TC ottieni sempre gli stessi identi
 
 ---
 
+## ⚠️ Limiti dello studio (importante)
+Pilota su **326 casi**; i risultati vanno letti con questi limiti (emersi anche da una revisione del codice):
+
+1. **Confronto tra estrattori non "apples-to-apples"**: input diversi (Merlin sul volume intero; gli altri
+   sul box pancreas; ImageNet/RadImageNet in 2.5D) e feature di dimensione diversa. Per questo è stato aggiunto
+   **`merlin_roi`** (Merlin anche sul box): sul box la **radiomica (~0.89) supera Merlin (~0.79)**. La classifica
+   *tra* estrattori è indicativa; il confronto valido è **dentro la riga** (con vs senza clinica).
+2. **Regolarizzazione fissa `C=0.1` (non tunata)** su modelli con 2 / 107 / 2048 feature → punto operativo
+   arbitrario e dipendente dalla dimensione.
+3. **"La clinica non aggiunge nulla" è testato solo con early-fusion** (concatenazione): con 2 variabili cliniche
+   fra centinaia/migliaia di feature-immagine sotto L2, l'effetto può essere "annegato". Un test più pulito
+   (non incluso) è la **late-fusion** (punteggio-immagine + clinica). L'incremento è inoltre **a bassa potenza**.
+4. **Confronti multipli non corretti**: ~9 righe testate a α=0.05 senza FDR/Holm → un singolo "significativo"
+   isolato (es. CT-FM p≈0.04) è **verosimilmente casuale**.
+5. **Holdout 70/30 (notebook 3) instabile** su ~98 casi di test → per il pilota usa la **CV ripetuta (notebook 4)**.
+6. La risposta **definitiva** richiede il **dataset completo (2238 casi)**.
+
+La stessa sezione è anche in fondo ai notebook di analisi (3 e 4).
+
+---
+
 ## ★ File da COPIARE per ricreare lo stesso risultato su un altro PC
 
 **Rieseguire solo l'ANALISI (veloce, senza GPU né ri-estrazione):**

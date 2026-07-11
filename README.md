@@ -33,23 +33,27 @@ interno (nessun file `.py` da inseguire), spiegata cella per cella.
 - **git** e connessione internet (per scaricare pesi dei modelli e dataset).
 
 ## Struttura delle cartelle
+Dopo `git clone`, la cartella radice è `panorama-pdac-clinical-vs-imaging/` (i notebook
+rilevano da soli la radice, cercando `imagesTr/` + il file clinico). Le voci *(git-ignored)*
+non sono nella repo: si creano/scaricano seguendo la guida.
 ```
-PANORAMA_v2/                          ← RADICE del progetto
-├─ imagesTr/  labelsTr/               ← TC + maschere               (dal download)
-├─ cache/clinical_information.xlsx    ← metadati clinici            (dal download)
+panorama-pdac-clinical-vs-imaging/    ← RADICE del progetto (la cartella clonata)
+├─ README.md                          ← questo file
 ├─ panorama_download.ipynb            ← notebook di DOWNLOAD del dataset
-├─ .venv-ml/                          ← ambiente Python 3.12 (ML)
-├─ .venv-radiomics/                   ← ambiente Python 3.7 (pyradiomics)
+├─ requirements.txt                   ← dipendenze per il notebook di download
+├─ imagesTr/  labelsTr/               ← TC + maschere          (dal download · git-ignored)
+├─ cache/clinical_information.xlsx    ← metadati clinici        (dal download · git-ignored)
+├─ .venv-ml/                          ← ambiente Python 3.12    (da creare · git-ignored)
+├─ .venv-radiomics/                   ← ambiente Python 3.7     (da creare · git-ignored)
 └─ ml_study/
-   ├─ notebooks/                      ← ★ I 4 NOTEBOOK (tutto qui)
+   ├─ notebooks/                      ← ★ I 4 NOTEBOOK (tutta la logica è qui)
    │  ├─ 1_estrazione_RADIOMICA.ipynb        (kernel Python 3.7)
    │  ├─ 2_estrazione_DEEP.ipynb             (kernel .venv-ml)
    │  ├─ 3_analisi_holdout_DeLong.ipynb      (kernel .venv-ml)
    │  └─ 4_analisi_CV_NadeauBengio.ipynb     (kernel .venv-ml)
-   ├─ cache_features/                 ← feature estratte (.parquet) [rigenerabili]
-   ├─ model_weights/                  ← pesi STU-Net (scaricati al volo)
    ├─ requirements-ml.txt / requirements-radiomics.txt
-   └─ README_STUDIO.md                ← questo file
+   ├─ cache_features/                 ← feature estratte (.parquet)  [rigenerabili · git-ignored]
+   └─ model_weights/                  ← pesi STU-Net (scaricati al volo · git-ignored)
 ```
 
 ---

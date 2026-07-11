@@ -8,9 +8,12 @@ ImageNet, RadImageNet). Dataset: [PANORAMA](https://panorama.grand-challenge.org
 > **Questa repo contiene solo CODICE + GUIDA.** I dati immagine (licenza **CC BY-NC 4.0**) e le
 > feature/pesi rigenerabili **non** sono inclusi: si scaricano/ricreano seguendo le istruzioni.
 
-**Risultato (pilota, 326 casi):** il foundation model di CT addominale **Merlin** è il miglior
-estrattore-immagine (AUROC ~0.90); aggiungere sesso+età dà un miglioramento **trascurabile e non
-significativo** — coerente su tutti gli estrattori. (La risposta definitiva richiede il dataset completo.)
+**Risultato (pilota, 326 casi):** nel confronto *apples-to-apples* (tutti gli estrattori sul **box del
+pancreas**) la **radiomica** è il miglior estrattore-immagine (AUROC ~0.89); **Merlin** raggiunge ~0.90
+ma solo usando il **volume intero** (`merlin`), mentre sul box (`merlin_roi`) scende a ~0.79. Aggiungere
+**sesso+età** dà un miglioramento **trascurabile e non significativo**, coerente su tutti gli estrattori.
+La risposta definitiva richiede il dataset completo. **Vedi la sezione "Limiti" nei notebook di analisi**
+(confronto tra estrattori non uniforme, C fisso, early-fusion, confronti multipli).
 
 ---
 
